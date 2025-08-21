@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->decimal('prd_price', 12, 2);
             $table->integer('prd_stock');
 
-            $table->unsignedBigInteger('prd_create_by');
+            $table->unsignedBigInteger('prd_create_by')->nullable();
             $table->unsignedBigInteger('prd_update_by')->nullable();
             $table->unsignedBigInteger('prd_delete_by')->nullable();
 
@@ -24,8 +24,8 @@ return new class extends Migration {
 
             $table->string('prd_sys_note', 255)->nullable();
 
-            // Foreign keys ke tabel users
-            $table->foreign('prd_create_by')->references('id')->on('users');
+            // Foreign keys
+            $table->foreign('prd_create_by')->references('id')->on('users')->onDelete('set null');
             $table->foreign('prd_update_by')->references('id')->on('users');
             $table->foreign('prd_delete_by')->references('id')->on('users');
         });

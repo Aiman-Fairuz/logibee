@@ -25,6 +25,15 @@ class DatabaseSeeder extends Seeder
             'updated_at' => now()
         ]);  
 
+        DB::table('roles')->insert([
+                'rol_id'     => 1,
+                'rol_name'   => 'Staff',
+                'rol_note'   => 'Admin dengan akses penuh',
+                'created_at' => now(),
+                'updated_at' => now(),
+        ]);  
+
+
 
         // Seeder tb_products
         DB::table('tb_products')->insert([
@@ -70,5 +79,7 @@ class DatabaseSeeder extends Seeder
             'res_created_at' => now(),
             'res_used' => false
         ]);
+
+        
     }
 }
